@@ -1,0 +1,19 @@
+title: "Kent Ormillada - Data Science Portfolio"
+author: "Kent Ormillada"
+
+# Information about where the book is hosted
+repository:
+  url: https://github.com/ormilladakent-beep/ds-portfolio
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_download_button: true
+
+execute:
+  execute_notebooks: off
+
+sphinx:
+  config:
+    html_theme_options:
+      navigation_with_keys: true
