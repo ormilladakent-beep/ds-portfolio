@@ -13,6 +13,10 @@ html:
 execute:
   execute_notebooks: off
 
+html:
+  extra_css:
+    - custom.css
+
 sphinx:
   config:
     html_theme_options:
