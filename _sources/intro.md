@@ -26,7 +26,7 @@ the course.
 
 * Laboratory Task 2 (Forward pass and compute)
 * Laboratory Task 3 
-* Laboratory Task 4 (ongoing...)
+* Laboratory Task 4 (PyTorch Linear Regression)
 * Laboratory Task 5 (ongoing...)
 * Laboratory Task 6 (ongoing...) 
 

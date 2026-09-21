@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Science Portfolio &#8212; Kent Ormillada - Data Science Portfolio</title>
+    <title>Laboratory Task 4: PyTorch Linear Regression &#8212; Kent Ormillada - Data Science Portfolio</title>
   
   
   
@@ -57,12 +57,9 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Laboratory Task 2: Forward Pass &amp; Error Computation" href="lab2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -145,7 +142,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -229,7 +226,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/lab4.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -239,7 +236,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -300,9 +297,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -313,25 +308,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Science Portfolio</h1>
+    <h1>Laboratory Task 4: PyTorch Linear Regression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about">About</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-tools">Skills and Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-projects">Personal Projects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book">Jupyter Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author">Author</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -341,60 +322,102 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-science-portfolio">
-<h1>Data Science Portfolio<a class="headerlink" href="#data-science-portfolio" title="Link to this heading">#</a></h1>
-<p>Welcome to my personal Data Science portfolio.</p>
-<p>This repository contains my Data Science projects, Jupyter Notebooks,
-data analyses, visualizations, and other activities completed throughout
-the course.</p>
-<section id="about">
-<h2>About<a class="headerlink" href="#about" title="Link to this heading">#</a></h2>
-<p><strong>Name:</strong> Kent Ormillada<br />
-<strong>Program:</strong> Data Science<br />
-<strong>Portfolio:</strong> Jupyter Book</p>
-</section>
-<section id="skills-and-tools">
-<h2>Skills and Tools<a class="headerlink" href="#skills-and-tools" title="Link to this heading">#</a></h2>
+  <section id="laboratory-task-4-pytorch-linear-regression">
+<h1>Laboratory Task 4: PyTorch Linear Regression<a class="headerlink" href="#laboratory-task-4-pytorch-linear-regression" title="Link to this heading">#</a></h1>
+<p><strong>Instruction:</strong> Train a linear regression model in PyTorch using a regression dataset. Use the following parameters:</p>
 <ul class="simple">
-<li><p>Python</p></li>
-<li><p>Jupyter Notebook</p></li>
-<li><p>Pandas</p></li>
-<li><p>RStudio</p></li>
-<li><p>Git</p></li>
-<li><p>GitHub</p></li>
-<li><p>Data Mining</p></li>
+<li><p><strong>Criterion:</strong> MSE Loss</p></li>
+<li><p><strong>Fully Connected Layers:</strong> x 2</p></li>
+<li><p><strong>Batch Size:</strong> 8</p></li>
+<li><p><strong>Optimizer:</strong> SGD</p></li>
+<li><p><strong>Epochs:</strong> 1000</p></li>
 </ul>
-</section>
-<section id="projects">
-<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Laboratory Task 2 (Forward pass and compute)</p></li>
-<li><p>Laboratory Task 3</p></li>
-<li><p>Laboratory Task 4 (PyTorch Linear Regression)</p></li>
-<li><p>Laboratory Task 5 (ongoing…)</p></li>
-<li><p>Laboratory Task 6 (ongoing…)</p></li>
-</ul>
-</section>
-<section id="personal-projects">
-<h2>Personal Projects<a class="headerlink" href="#personal-projects" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">EDA_new-dup-method.ipynb</span></code>
-<code class="docutils literal notranslate"><span class="pre">Ormillada_Lab2.ipynb</span></code></p>
-</section>
-<section id="jupyter-book">
-<h2>Jupyter Book<a class="headerlink" href="#jupyter-book" title="Link to this heading">#</a></h2>
-<p>This repository is published as a Jupyter Book using GitHub Pages.</p>
-</section>
-<section id="purpose">
-<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
-<p>The purpose of this portfolio is to document my progress and development
-as a Data Science student. More projects and analyses will be added
-throughout the semester.</p>
-</section>
-<section id="author">
-<h2>Author<a class="headerlink" href="#author" title="Link to this heading">#</a></h2>
-<p>Kent Ormillada</p>
-</section>
-<div class="toctree-wrapper compound">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nn</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">optim</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+
+<span class="c1"># 1. Synthetic Regression Dataset Generation</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 100 samples, 4 features</span>
+<span class="n">true_weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">]])</span>
+<span class="n">true_bias</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">true_weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">true_bias</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+
+<span class="c1"># Prepare DataLoader (Batch Size: 8)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">TensorDataset</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">dataloader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 2. Model Architecture (Fully Connected Layers x 2)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TwoLayerRegressionModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TwoLayerRegressionModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># Hidden Layer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>          <span class="c1"># Output Layer</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">TwoLayerRegressionModel</span><span class="p">(</span><span class="n">input_dim</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># 3. Criterion &amp; Optimizer Setup</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">()</span>                           <span class="c1"># Criterion: MSE Loss</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># Optimizer: SGD</span>
+
+<span class="c1"># 4. Training Loop (Epoch: 1000)</span>
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- Starting Training Loop ---"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">batch_X</span><span class="p">,</span> <span class="n">batch_y</span> <span class="ow">in</span> <span class="n">dataloader</span><span class="p">:</span>
+        <span class="c1"># Zero gradients</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+
+        <span class="c1"># Forward pass</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch_X</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">batch_y</span><span class="p">)</span>
+
+        <span class="c1"># Backward pass &amp; update</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="n">running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_X</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">epoch_loss</span> <span class="o">=</span> <span class="n">running_loss</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+
+    <span class="c1"># Print loss every 100 epochs</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch [</span><span class="si">{</span><span class="n">epoch</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2">] - MSE Loss: </span><span class="si">{</span><span class="n">epoch_loss</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Training Complete ---"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Starting Training Loop ---
+Epoch [1/1000] - MSE Loss: 13.620457
+Epoch [100/1000] - MSE Loss: 0.037474
+Epoch [200/1000] - MSE Loss: 0.026237
+Epoch [300/1000] - MSE Loss: 0.022203
+Epoch [400/1000] - MSE Loss: 0.020168
+Epoch [500/1000] - MSE Loss: 0.018713
+Epoch [600/1000] - MSE Loss: 0.017898
+Epoch [700/1000] - MSE Loss: 0.017095
+Epoch [800/1000] - MSE Loss: 0.016385
+Epoch [900/1000] - MSE Loss: 0.016294
+Epoch [1000/1000] - MSE Loss: 0.015578
+
+--- Training Complete ---
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -428,42 +451,12 @@ throughout the semester.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="lab2.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Laboratory Task 2: Forward Pass &amp; Error Computation</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about">About</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-tools">Skills and Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#personal-projects">Personal Projects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book">Jupyter Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author">Author</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
