@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Science Portfolio &#8212; Kent Ormillada - Data Science Portfolio</title>
+    <title>Laboratory Task 2: Forward Pass &amp; Error Computation &#8212; Kent Ormillada - Data Science Portfolio</title>
   
   
   
@@ -57,9 +57,13 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'README.md';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lab2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lab 3" href="lab3.html" />
+    <link rel="prev" title="Data Science Portfolio" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +126,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -165,7 +167,9 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Laboratory Task 2: Forward Pass &amp; Error Computation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab3.html"><strong>Lab 3</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="EDA_new-dup-method.html">Data Cleaning &amp; Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ormillada_Lab2.html"><strong>Structured Data Cleaning and EDA Storytelling Report</strong></a></li>
 
@@ -224,7 +228,7 @@
       
       
       
-      <li><a href="_sources/README.md.md" target="_blank"
+      <li><a href="_sources/lab2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -234,7 +238,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -308,7 +312,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Science Portfolio</h1>
+    <h1>Laboratory Task 2: Forward Pass & Error Computation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -318,15 +322,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about">About</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-tools">Skills and Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-1">Project 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-overview">Task Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#given-parameters">1. Given Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-and-biases">Weights and Biases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book">Jupyter Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author">Author</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-steps">2. Calculation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-hidden-layer-activations">Step 1: Hidden Layer Activations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-output-layer-activation">Step 2: Output Layer Activation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-error-calculation">Step 3: Error Calculation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-implementation">3. Python Implementation</a></li>
 </ul>
             </nav>
         </div>
@@ -338,51 +345,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-science-portfolio">
-<h1>Data Science Portfolio<a class="headerlink" href="#data-science-portfolio" title="Link to this heading">#</a></h1>
-<p>Welcome to my personal Data Science portfolio.</p>
-<p>This repository contains my Data Science projects, Jupyter Notebooks,
-data analyses, visualizations, and other activities completed throughout
-the course.</p>
-<section id="about">
-<h2>About<a class="headerlink" href="#about" title="Link to this heading">#</a></h2>
-<p><strong>Name:</strong> Kent Ormillada<br />
-<strong>Program:</strong> Data Science<br />
-<strong>Portfolio:</strong> Jupyter Book</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="laboratory-task-2-forward-pass-error-computation">
+<h1>Laboratory Task 2: Forward Pass &amp; Error Computation<a class="headerlink" href="#laboratory-task-2-forward-pass-error-computation" title="Link to this heading">#</a></h1>
+<section id="task-overview">
+<h2>Task Overview<a class="headerlink" href="#task-overview" title="Link to this heading">#</a></h2>
+<p>Perform a single forward pass through a multi-layer neural network with ReLU activations and compute the prediction error.</p>
 </section>
-<section id="skills-and-tools">
-<h2>Skills and Tools<a class="headerlink" href="#skills-and-tools" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="given-parameters">
+<h2>1. Given Parameters<a class="headerlink" href="#given-parameters" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Python</p></li>
-<li><p>Jupyter Notebook</p></li>
-<li><p>Pandas</p></li>
-<li><p>RStudio</p></li>
-<li><p>Git</p></li>
-<li><p>GitHub</p></li>
-<li><p>Data Mining</p></li>
+<li><p><strong>Input vector (<span class="math notranslate nohighlight">\(x\)</span>)</strong>: <span class="math notranslate nohighlight">\([1, 0, 1]^T\)</span></p></li>
+<li><p><strong>Target output (<span class="math notranslate nohighlight">\(y\)</span>)</strong>: <span class="math notranslate nohighlight">\([1]\)</span></p></li>
+<li><p><strong>Activation function</strong>: <span class="math notranslate nohighlight">\(f(Z) = \max(0, Z)\)</span> (ReLU)</p></li>
+</ul>
+<section id="weights-and-biases">
+<h3>Weights and Biases<a class="headerlink" href="#weights-and-biases" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Hidden Unit Weights (<span class="math notranslate nohighlight">\(W_h\)</span>)</strong>:
+$<span class="math notranslate nohighlight">\(\begin{bmatrix} 0.2 &amp; -0.3 \\ 0.4 &amp; 0.1 \\ -0.5 &amp; 0.2 \end{bmatrix}\)</span>$</p></li>
+<li><p><strong>Output Unit Weights (<span class="math notranslate nohighlight">\(W_o\)</span>)</strong>:
+$<span class="math notranslate nohighlight">\(\begin{bmatrix} -0.3 \\ -0.2 \end{bmatrix}\)</span>$</p></li>
+<li><p><strong>Biases (<span class="math notranslate nohighlight">\(\theta\)</span>)</strong>: <span class="math notranslate nohighlight">\(\theta_1 = -0.4\)</span>, <span class="math notranslate nohighlight">\(\theta_2 = 0.2\)</span>, <span class="math notranslate nohighlight">\(\theta_3 = 0.1\)</span></p></li>
 </ul>
 </section>
-<section id="projects">
-<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading">#</a></h2>
-<section id="project-1">
-<h3>Project 1<a class="headerlink" href="#project-1" title="Link to this heading">#</a></h3>
-<p>My first Data Science project is available in the Jupyter Notebook:</p>
-<p><code class="docutils literal notranslate"><span class="pre">EDA_new-dup-method.ipynb</span></code></p>
+</section>
+<hr class="docutils" />
+<section id="calculation-steps">
+<h2>2. Calculation Steps<a class="headerlink" href="#calculation-steps" title="Link to this heading">#</a></h2>
+<section id="step-1-hidden-layer-activations">
+<h3>Step 1: Hidden Layer Activations<a class="headerlink" href="#step-1-hidden-layer-activations" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[Z_{h1} = (1 \cdot 0.2) + (0 \cdot 0.4) + (1 \cdot -0.5) + (-0.4) = -0.7\]</div>
+<div class="math notranslate nohighlight">
+\[Z_{h2} = (1 \cdot -0.3) + (0 \cdot 0.1) + (1 \cdot 0.2) + 0.2 = 0.1\]</div>
+<p>Applying ReLU:
+$<span class="math notranslate nohighlight">\(A_{h1} = \max(0, -0.7) = 0\)</span><span class="math notranslate nohighlight">\(
+\)</span><span class="math notranslate nohighlight">\(A_{h2} = \max(0, 0.1) = 0.1\)</span>$</p>
+</section>
+<section id="step-2-output-layer-activation">
+<h3>Step 2: Output Layer Activation<a class="headerlink" href="#step-2-output-layer-activation" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[Z_o = (0 \cdot -0.3) + (0.1 \cdot -0.2) + 0.1 = 0.08\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{y} = \max(0, 0.08) = 0.08\]</div>
+</section>
+<section id="step-3-error-calculation">
+<h3>Step 3: Error Calculation<a class="headerlink" href="#step-3-error-calculation" title="Link to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\text{Linear Error } (\delta) = \hat{y} - y = 0.08 - 1 = -0.92\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Squared Error } (E) = \frac{1}{2}(\hat{y} - y)^2 = 0.4232\]</div>
 </section>
 </section>
-<section id="jupyter-book">
-<h2>Jupyter Book<a class="headerlink" href="#jupyter-book" title="Link to this heading">#</a></h2>
-<p>This repository is published as a Jupyter Book using GitHub Pages.</p>
-</section>
-<section id="purpose">
-<h2>Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h2>
-<p>The purpose of this portfolio is to document my progress and development
-as a Data Science student. More projects and analyses will be added
-throughout the semester.</p>
-</section>
-<section id="author">
-<h2>Author<a class="headerlink" href="#author" title="Link to this heading">#</a></h2>
-<p>Kent Ormillada</p>
+<hr class="docutils" />
+<section id="python-implementation">
+<h2>3. Python Implementation<a class="headerlink" href="#python-implementation" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Inputs and Target</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="c1"># Weights and Biases</span>
+<span class="n">W_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">],</span>
+                <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+                <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]])</span>
+<span class="n">W_o</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">])</span>
+<span class="n">theta_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">theta_o</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># ReLU function</span>
+<span class="n">relu</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+<span class="c1"># Forward pass - Hidden Layer</span>
+<span class="n">Z_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W_h</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_h</span>
+<span class="n">A_h</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">Z_h</span><span class="p">)</span>
+
+<span class="c1"># Forward pass - Output Layer</span>
+<span class="n">Z_o</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A_h</span><span class="p">,</span> <span class="n">W_o</span><span class="p">)</span> <span class="o">+</span> <span class="n">theta_o</span>
+<span class="n">y_hat</span> <span class="o">=</span> <span class="n">relu</span><span class="p">(</span><span class="n">Z_o</span><span class="p">)</span>
+
+<span class="c1"># Error</span>
+<span class="n">error</span> <span class="o">=</span> <span class="n">y_hat</span> <span class="o">-</span> <span class="n">y</span>
+<span class="n">squared_error</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">error</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Predicted Output (y_hat): </span><span class="si">{</span><span class="n">y_hat</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Linear Error: </span><span class="si">{</span><span class="n">error</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Squared Error: </span><span class="si">{</span><span class="n">squared_error</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Predicted Output (y_hat): 0.08
+Linear Error: -0.9200
+Squared Error: 0.4232
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -416,6 +482,24 @@ throughout the semester.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Science Portfolio</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lab3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Lab 3</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -432,15 +516,18 @@ throughout the semester.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about">About</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-tools">Skills and Tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projects">Projects</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-1">Project 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-overview">Task Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#given-parameters">1. Given Parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-and-biases">Weights and Biases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-book">Jupyter Book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">Purpose</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author">Author</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculation-steps">2. Calculation Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-hidden-layer-activations">Step 1: Hidden Layer Activations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-output-layer-activation">Step 2: Output Layer Activation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-error-calculation">Step 3: Error Calculation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-implementation">3. Python Implementation</a></li>
 </ul>
   </nav></div>
 
