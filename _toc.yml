@@ -1,5 +1,8 @@
 format: jb-book
 root: intro
 chapters:
+  - file: lab2
+  - file: lab3
   - file: EDA_new-dup-method
   - file: Ormillada_Lab2
+  
