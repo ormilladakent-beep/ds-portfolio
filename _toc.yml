@@ -16,5 +16,5 @@ parts:
     chapters:
       - file: EDA_new-dup-method
         title: "Data Cleaning & Preparation"
-      - file: Reaction_paper
+      - file: Ormillada_lab2
         title: "EDA Storytelling Report"
