@@ -3,16 +3,18 @@ root: intro
 parts:
   - caption: Laboratory Tasks
     chapters:
-      - file: lab_tasks
-        title: "Lab 2 & Lab 3"
-      - file: lab_task_4
+      - file: lab2
+        title: "Lab 2 "
+      - file: lab3 
+        title: "Lab 3 " 
+      - file: lab4
         title: "Lab 4"
-      - file: lab_task_5
+      - file: lab5
         title: "Lab 5"
 
   - caption: Personal Projects
     chapters:
       - file: EDA_new-dup-method
         title: "Data Cleaning & Preparation"
-      - file: reaction_paper
+      - file: Reaction_paper
         title: "EDA Storytelling Report"
