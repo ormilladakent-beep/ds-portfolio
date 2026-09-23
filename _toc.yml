@@ -1,21 +1,17 @@
 format: jb-book
 root: intro
-chapters:
-  
-    title: "Laboratory Tasks"
-    sections:
-      - file: lab_task_2
-        title: "Lab 2: Forward Pass & Error"
-      - file: lab_task_3
-        title: "Lab 3: Backpropagation"
+parts:
+  - caption: Laboratory Tasks
+    chapters:
+      - file: lab_tasks
+        title: "Lab 2 & Lab 3"
       - file: lab_task_4
-        title: "Lab 4: PyTorch Regression"
+        title: "Lab 4"
       - file: lab_task_5
-        title: "Lab 5: Tensor Operations"
+        title: "Lab 5"
 
-  
-    title: "Personal Projects"
-    sections:
+  - caption: Personal Projects
+    chapters:
       - file: EDA_new-dup-method
         title: "Data Cleaning & Preparation"
       - file: reaction_paper
