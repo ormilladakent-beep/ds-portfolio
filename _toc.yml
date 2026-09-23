@@ -1,11 +1,20 @@
 format: jb-book
 root: intro
-chapters:
-  - file: lab2
-  - file: lab3
-  - file: lab4
-  - file: lab5
-  - file: lab6 
-  - file: EDA_new-dup-method
-  - file: Ormillada_Lab2
-  
+parts:
+  - caption: Laboratory Tasks
+    chapters:
+      - file: lab_task_2
+        title: "Lab 2: Forward Pass & Error"
+      - file: lab_task_3
+        title: "Lab 3: Backpropagation"
+      - file: lab_task_4
+        title: "Lab 4: PyTorch Regression"
+      - file: lab_task_5
+        title: "Lab 5: Tensor Operations"
+
+  - caption: Personal Projects & Reports
+    chapters:
+      - file: EDA_new-dup-method
+        title: "Data Cleaning & Preparation"
+      - file: Structured Data Cleaning
+        title: "EDA Storytelling Report"
