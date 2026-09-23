@@ -1,8 +1,9 @@
 format: jb-book
 root: intro
-parts:
-  - caption: Laboratory Tasks
-    chapters:
+chapters:
+  
+    title: "Laboratory Tasks"
+    sections:
       - file: lab_task_2
         title: "Lab 2: Forward Pass & Error"
       - file: lab_task_3
@@ -12,9 +13,10 @@ parts:
       - file: lab_task_5
         title: "Lab 5: Tensor Operations"
 
-  - caption: Personal Projects & Reports
-    chapters:
+  
+    title: "Personal Projects"
+    sections:
       - file: EDA_new-dup-method
         title: "Data Cleaning & Preparation"
-      - file: Structured Data Cleaning
+      - file: reaction_paper
         title: "EDA Storytelling Report"
