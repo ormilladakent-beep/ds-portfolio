@@ -11,6 +11,8 @@ parts:
         title: "Lab 4"
       - file: lab5
         title: "Lab 5"
+      - file: "lab 6"  
+        title: "lab6"
 
   - caption: Personal Projects
     chapters:
