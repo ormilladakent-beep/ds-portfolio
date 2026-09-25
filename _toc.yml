@@ -12,7 +12,7 @@ parts:
       - file: lab5
         title: "Lab 5"
       - file: "lab6"  
-        title: "Lab s6"
+        title: "Lab 6"
 
   - caption: Personal Projects
     chapters:
